@@ -1,0 +1,20 @@
+<p>Burp extension that performs a passive scan to identify cloud buckets and then test them for publicly accessible vulnerabilities.</p>
+
+<p>The extension looks at all responses and will note:</p>
+<ol>
+	<li>AWS S3 bucket URLs.</li>
+	<li>Azure Storage container URLs.</li>
+	<li>Google Storage container URLs.</li>
+</ol>
+
+<p>Usage:</p>
+<ol>
+	<li>Add the JAR as an extension in Burp.</li>
+	<li>Add the appropriate targets to scope.</li>
+	<li>Begin manually browsing and scanning the target.</li>
+	<li>If you want to test for permissions issues that allow all authenticated AWS/GCP users, then add your personal AWS/GCP credentials, and click the "Set Configuration" button.</li>
+	<li>If you want to check for potential subdomain takeover vulnerabilities, add API keys for Shodan and Censys (if you want to use both), in addition to a text file list of subdomains (if you want), check the subdomain takeover configuration box, and click the "Set Configuration" button.</li>
+</ol>
+
+<p>For a full list of the features, please check out the GitHub link below.</p>
+

@@ -37,3 +37,9 @@ jar {
     baseName = project.name
     from { configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) } }
 }
+
+compileJava {
+    targetCompatibility '1.8'
+    sourceCompatibility '1.8'
+}
+
