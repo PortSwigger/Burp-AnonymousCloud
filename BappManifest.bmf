@@ -2,11 +2,12 @@ Uuid: ea60f107b25d44ddb59c1aee3786c6a1
 ExtensionType: 1
 Name: Anonymous Cloud, Configuration and Subdomain Takeover Scanner
 RepoName: anonymous-cloud
-ScreenVersion: 0.1.12
-SerialVersion: 2
+ScreenVersion: 0.1.13
+SerialVersion: 3
 MinPlatformVersion: 0
 ProOnly: True
 Author: codewatchorg
 ShortDescription: Burp extension that performs a passive scan to identify cloud buckets and then test them for publicly accessible vulnerabilities.
 EntryPoint: build/libs/AnonymousCloud.jar
-BuildCommand: gradle jar
+BuildCommand: ./gradlew jar
+SupportedProducts: Pro

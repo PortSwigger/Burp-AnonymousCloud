@@ -9,7 +9,7 @@ configurations {
 }
 
 dependencies {
-    compile 'net.portswigger.burp.extender:burp-extender-api:2.1'
+    implementation 'net.portswigger.burp.extender:burp-extender-api:2.1'
     extraLibs group: 'commons-codec', name: 'commons-codec', version: '1.11'
     extraLibs group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.11.708'
     extraLibs group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.708'
@@ -22,8 +22,15 @@ dependencies {
     extraLibs group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-cbor', version: '2.6.7'
     extraLibs group: 'joda-time', name: 'joda-time', version: '2.8.1'
     extraLibs group: 'org.json', name: 'json', version: '20190722'
-    configurations.compile.extendsFrom(configurations.extraLibs)
+    configurations.compileClasspath.extendsFrom(configurations.extraLibs)
 }
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+}
+
 
 sourceSets {
     main {
@@ -34,6 +41,8 @@ sourceSets {
 }
 
 jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     baseName = project.name
     from { configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) } }
 }
